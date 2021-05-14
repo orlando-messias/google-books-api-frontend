@@ -1,0 +1,59 @@
+.topbarContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: linear-gradient(180deg, var(--green), var(--dark-green));
+  width: 99vw;
+  height: 80px;
+  position: relative;
+  font-family: 'Roboto', sans-serif;
+}
+
+.topbarMenu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+  height: 60px;
+}
+
+.topbarMenu div{
+  display: flex;
+  margin-left: 10px;
+  color: white;
+  font-weight: bold;
+}
+
+.topbarMenu .icon {
+  font-size: 18px;
+}
+
+.topbarMenu span {
+  font-size: 16px;
+  margin-left: 5px;
+  
+}
+
+.topbarMenu div:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.topbarTitle {
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  letter-spacing: 1px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.topbarTitle div {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+}
+
+.iconSpace {
+  margin-left: 13px;
+}
