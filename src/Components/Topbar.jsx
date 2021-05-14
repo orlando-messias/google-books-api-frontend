@@ -1,14 +1,17 @@
 // react
 import React from 'react';
+// react-icons
 import { ImSearch } from 'react-icons/im';
 import { BsFillBookmarksFill } from 'react-icons/bs';
 import { MdEmail } from 'react-icons/md';
 import { AiFillHome } from 'react-icons/ai';
-
+// components
+import Userbar from './Userbar';
 // styles
 import './TopbarStyles.css';
 
 
+// Topbar Component
 export default function Topbar() {
   return (
     <div className="topbarContainer">
@@ -31,9 +34,7 @@ export default function Topbar() {
         </div>
         {/* <p>Google Books</p> */}
       </div>
-      <div>
-        <p>User's Area</p>
-      </div>
+      <Userbar />
     </div>
   );
 };

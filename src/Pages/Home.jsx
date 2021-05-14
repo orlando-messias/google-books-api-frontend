@@ -1,8 +1,10 @@
 // react
 import React from 'react';
+// react-icons
 import { GiOpenBook } from 'react-icons/gi';
+// components
 import Topbar from '../Components/Topbar';
-
+// styles
 import './HomeStyles.css';
 
 
