@@ -1,0 +1,38 @@
+.pageContainer {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+}
+
+.logoContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top: 30px;
+}
+
+.logoTitleMain {
+  font-family: 'Roboto', sans-serif;
+  font-size: 65px;
+  color: var(--blue);
+}
+
+.logoTitleSecondary {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: -10px;
+  margin-right: -24px;
+  color: var(--red);
+  display: flex;
+  align-items: center;
+  
+}
+
+.logoBook {
+  color: var(--green);
+  margin-left: 5px;
+  font-size: 24px;
+}
