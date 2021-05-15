@@ -40,7 +40,11 @@ export default function Home() {
       </div>
 
       <div className="searchbarContainer">
-        <SearchBar handleSearchChange={handleSearchChange} handleSearchButtonClick={handleSearchButtonClick} />
+        <SearchBar
+          handleSearchChange={handleSearchChange}
+          handleSearchButtonClick={handleSearchButtonClick}
+          book={book} 
+        />
       </div>
 
     </div>

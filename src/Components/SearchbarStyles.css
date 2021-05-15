@@ -74,8 +74,9 @@
 
 .searchbarBox .btnSearch:disabled {
   background-color: var(--light-gray);
+  border: 1px solid var(--light-gray);
+  color: white;
   cursor: initial;
-  box-shadow: none;
 }
 
 

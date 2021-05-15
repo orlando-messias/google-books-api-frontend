@@ -1,13 +1,15 @@
 // react
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 // react icons
 import { FaSearch } from "react-icons/fa";
+// services
+import validations from '../services/validations';
 // styles
 import './SearchbarStyles.css';
 
 
 // Searchbar Component
-export default function SearchBar({ handleSearchChange, handleSearchButtonClick }) {
+export default function SearchBar({ handleSearchChange, handleSearchButtonClick, book }) {
 
   return (
     <div className="searchbarBox">
@@ -26,6 +28,7 @@ export default function SearchBar({ handleSearchChange, handleSearchButtonClick 
       <button
         className="btnSearch"
         onClick={handleSearchButtonClick}
+        disabled={!validations.searchInputValidation(book)}
       >
         Search
       </button>
