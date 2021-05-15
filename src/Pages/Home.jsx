@@ -9,6 +9,8 @@ import SearchBar from '../Components/Searchbar';
 import Topbar from '../Components/Topbar';
 // services
 import googleAPI from '../services/googleAPI';
+// images
+import imageNotFound from '../assets/image-not-found.jpg';
 // styles
 import './HomeStyles.css';
 
@@ -63,9 +65,10 @@ export default function Home() {
         <div className="cardContainer">
           {books.map((book, index) => {
             let thumbnail = '';
-            if (book.volumeInfo.imageLinks) {
-              thumbnail = book.volumeInfo.imageLinks.thumbnail
-            }
+            (book.volumeInfo.imageLinks)
+              ? thumbnail = book.volumeInfo.imageLinks.thumbnail
+              : thumbnail = imageNotFound
+
             return (
               <BookCard key={index}
                 title={book.volumeInfo.title}
