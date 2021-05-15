@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 // react-icons
 import { GiOpenBook } from 'react-icons/gi';
 import BookCard from '../Components/BookCard';
+import ModalBookDetails from '../Components/ModalBookDetails';
 import SearchBar from '../Components/Searchbar';
 // components
 import Topbar from '../Components/Topbar';
@@ -65,10 +66,9 @@ export default function Home() {
             )
           })}
         </div>
-
       </div>
 
-      {/* {console.log(books[2].volumeInfo.publishedDate)} */}
+      <ModalBookDetails />
 
     </div>
   )

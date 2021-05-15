@@ -1,0 +1,74 @@
+.modal {
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalContainer {
+  width: 500px;
+  padding: 0;
+  background-color: white;
+  border-radius: 5px;
+  height:80%;
+}
+
+.modalHeader {
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  align-items: center;
+  background-color: var(--green);
+  justify-content: space-between;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  width: 100%;
+  height: 40px;
+  padding-left: 30px;
+  color: white;
+}
+
+.modalContainer .closeIcon {
+  display: flex;
+  font-size: 26px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.modalBody {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.modalInfo {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.modalSideInfo h3 {
+  margin-bottom: 5px;
+}
+
+.bookImage {
+  width: 160px;
+  height: 200px;
+  border: 1px solid black;
+  margin-right: 10px;
+}
+
+.modalDescription {
+  margin-top: 20px;
+}
+
+.modalSubtitle {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+
+
