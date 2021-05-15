@@ -42,3 +42,19 @@
   width: 100%;
   display: flex;
 }
+
+.cardContainerPage {
+  margin-top: 20px;
+  width: 100vw;
+  background-color: #ececec;
+  display: flex;
+  justify-content: center;
+}
+
+.cardContainer {
+  width: 70%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}

@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 // react-icons
 import { GiOpenBook } from 'react-icons/gi';
+import BookCard from '../Components/BookCard';
 import SearchBar from '../Components/Searchbar';
 // components
 import Topbar from '../Components/Topbar';
@@ -18,7 +19,7 @@ export default function Home() {
 
   const handleSearchButtonClick = () => {
     googleAPI(book).get()
-      .then(response => setBooks(response.data.items))
+      .then(response => { setBooks(response.data.items); console.log(response.data.items) })
   };
 
   const handleSearchChange = (e) => {
@@ -43,9 +44,31 @@ export default function Home() {
         <SearchBar
           handleSearchChange={handleSearchChange}
           handleSearchButtonClick={handleSearchButtonClick}
-          book={book} 
+          book={book}
         />
       </div>
+
+      <div className="cardContainerPage">
+        <div className="cardContainer">
+          {books.map(book => {
+            let thumbnail = '';
+            if (book.volumeInfo.imageLinks) {
+              thumbnail = book.volumeInfo.imageLinks.thumbnail
+            }
+            return (
+              <BookCard
+                title={book.volumeInfo.title}
+                image={thumbnail}
+                pageCount={book.volumeInfo.pageCount}
+                publishedDate={book.volumeInfo.publishedDate}
+              />
+            )
+          })}
+        </div>
+
+      </div>
+
+      {/* {console.log(books[2].volumeInfo.publishedDate)} */}
 
     </div>
   )
