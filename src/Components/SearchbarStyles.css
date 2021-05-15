@@ -77,3 +77,29 @@
   cursor: initial;
   box-shadow: none;
 }
+
+
+/*  -- responsive css -- */
+
+@media (max-width: 600px) {
+
+  .searchbarBox {
+    width: 100%;
+  }
+  
+  .searchbarBox input[type=text] {
+    width: 80%;
+  }
+
+  .searchbarBox .btnSearch {
+    margin-top: 12px;
+  }
+}
+
+@media (max-width: 360px) {
+
+  .searchbarBox input::placeholder {
+    font-size: 13px;
+  }
+  
+}
