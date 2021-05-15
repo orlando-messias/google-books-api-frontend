@@ -2,6 +2,7 @@
 import React from 'react';
 // react-icons
 import { GiOpenBook } from 'react-icons/gi';
+import SearchBar from '../Components/Searchbar';
 // components
 import Topbar from '../Components/Topbar';
 // styles
@@ -23,6 +24,11 @@ export default function Home() {
           <GiOpenBook className="logoBook" />
         </span>
       </div>
+
+      <div className="searchbarContainer">
+        <SearchBar />
+      </div>
+
     </div>
   )
 };
