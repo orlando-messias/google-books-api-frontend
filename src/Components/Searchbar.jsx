@@ -2,15 +2,17 @@
 import React, { useEffect, useState } from 'react';
 // react icons
 import { FaSearch } from "react-icons/fa";
+// styles
+import './SearchbarStyles.css';
 
 
 // Searchbar Component
 export default function SearchBar({ handleSearchChange, handleSearchButtonClick }) {
 
   return (
-    <div className="searchBarContainer">
+    <div className="searchbarBox">
 
-      <div className="searchIconContainer">
+      <div className="searchIconBox">
         <FaSearch className="searchIcon" />
       </div>
 
