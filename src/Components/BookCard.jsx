@@ -4,10 +4,32 @@ import React from 'react';
 import './BookCardStyles.css';
 
 
-export default function BookCard({ title, image, pageCount, publishedDate }) {
+export default function BookCard({
+  title,
+  image,
+  pageCount,
+  publishedDate,
+  language,
+  description,
+  handlePickedBook,
+  handleModal
+}) {
+
+  const handleCardClick = () => {
+    handlePickedBook({
+      title,
+      image,
+      pageCount,
+      publishedDate,
+      language,
+      description,
+    });
+
+    handleModal();
+  };
 
   return (
-    <div className="bookCardPageContainer">
+    <div className="bookCardPageContainer" onClick={handleCardClick}>
       <div className="bookCard">
         <div className="imageCard">
           <img src={image} alt={title} />
@@ -18,7 +40,9 @@ export default function BookCard({ title, image, pageCount, publishedDate }) {
           <p>Published at: {publishedDate}</p>
         </div>
       </div>
-
+      <div className="footer">
+        <p>{language} {description}</p>
+      </div>
     </div>
   )
 };

@@ -15,8 +15,10 @@ import './HomeStyles.css';
 
 // Home Component
 export default function Home() {
-  const [book, setBook] = useState("");
+  const [book, setBook] = useState({});
   const [books, setBooks] = useState([]);
+  const [showModal, setShowModal] = useState(false);
+  const [pickedBook, setPickedBook] = useState({});
 
   const handleSearchButtonClick = () => {
     googleAPI(book).get()
@@ -27,6 +29,14 @@ export default function Home() {
     const book = e.target.value;
     setBook(book);
   };
+
+  const handleModal = () => {
+    setShowModal(!showModal);
+  };
+
+  const handlePickedBook = (pickedBook) => {
+    setPickedBook(pickedBook);
+  }
 
   return (
     <div className="pageContainer">
@@ -51,24 +61,34 @@ export default function Home() {
 
       <div className="cardContainerPage">
         <div className="cardContainer">
-          {books.map(book => {
+          {books.map((book, index) => {
             let thumbnail = '';
             if (book.volumeInfo.imageLinks) {
               thumbnail = book.volumeInfo.imageLinks.thumbnail
             }
             return (
-              <BookCard
+              <BookCard key={index}
                 title={book.volumeInfo.title}
                 image={thumbnail}
                 pageCount={book.volumeInfo.pageCount}
                 publishedDate={book.volumeInfo.publishedDate}
+                language={book.volumeInfo.language}
+                description={book.volumeInfo.description}
+                handlePickedBook={handlePickedBook}
+                handleModal={handleModal}
               />
             )
           })}
         </div>
       </div>
 
-      <ModalBookDetails />
+      {showModal &&
+        <ModalBookDetails
+          showModal={showModal}
+          handleModal={handleModal}
+          pickedBook={pickedBook}
+        />
+      }
 
     </div>
   )

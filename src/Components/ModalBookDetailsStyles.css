@@ -15,7 +15,7 @@
   padding: 0;
   background-color: white;
   border-radius: 5px;
-  height:80%;
+  height:480px;
 }
 
 .modalHeader {
@@ -55,7 +55,7 @@
 }
 
 .bookImage {
-  width: 160px;
+  min-width: 150px;
   height: 200px;
   border: 1px solid black;
   margin-right: 10px;
@@ -63,11 +63,8 @@
 
 .modalDescription {
   margin-top: 20px;
-}
-
-.modalSubtitle {
-  font-weight: bold;
-  margin-bottom: 5px;
+  overflow-y: scroll;
+  height: 200px;
 }
 
 

@@ -33,3 +33,7 @@
   height: 200px;
   padding-right: 10px;
 }
+
+.footer {
+  display: none;
+}

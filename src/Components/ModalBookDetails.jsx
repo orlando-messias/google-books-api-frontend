@@ -7,7 +7,7 @@ import './ModalBookDetailsStyles.css';
 
 
 // Modal Book Details Component
-export default function ModalBookDetails({ showModal, handleModal, book }) {
+export default function ModalBookDetails({ showModal, handleModal, pickedBook }) {
 
   return (
     <div className="modal">
@@ -15,24 +15,23 @@ export default function ModalBookDetails({ showModal, handleModal, book }) {
 
         <div className="modalHeader">
           <h3>Book Details</h3>
-          <AiFillCloseCircle className="closeIcon" />
+          <AiFillCloseCircle className="closeIcon" onClick={handleModal} />
         </div>
 
         <div className="modalBody">
 
           <div className="modalInfo">
-            <span className="bookImage"></span>
+            <img src={pickedBook.image} className="bookImage" alt={pickedBook.title} />
             <div className="modalSideInfo">
-              <h3>Book Title Here</h3>
-              <p>Number of Pages: 44</p>
-              <p>Published at: 2020</p>
-              <p>Year</p>
+              <h3>{pickedBook.title}</h3>
+              <p>Published at: {pickedBook.publishedDate}</p>
+              <p>Number of Pages: {pickedBook.pageCount}</p>
+              <p>Language: {pickedBook.language}</p>
             </div>
           </div>
 
           <div className="modalDescription">
-            <p className="modalSubtitle">Subtitle</p>
-            <p>Book description here this is long wait a minute, man</p>
+            <p>{pickedBook.description}</p>
           </div>
 
         </div>
