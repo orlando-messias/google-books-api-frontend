@@ -21,6 +21,7 @@ export default function Home() {
   const [books, setBooks] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [pickedBook, setPickedBook] = useState({});
+  const [isFavoriteBook, setIsFavoriteBook] = useState(false);
 
   const handleSearchButtonClick = () => {
     googleAPI(book).get()
@@ -90,6 +91,8 @@ export default function Home() {
         <ModalBookDetails
           handleModal={handleModal}
           pickedBook={pickedBook}
+          isFavoriteBook={isFavoriteBook}
+          setIsFavoriteBook={setIsFavoriteBook}
         />
       }
 

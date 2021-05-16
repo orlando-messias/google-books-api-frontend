@@ -1,17 +1,21 @@
 // react
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 // react icons
 import { AiFillCloseCircle } from 'react-icons/ai';
 import { BsBookmarksFill } from 'react-icons/bs';
 import { BsBookmarks } from 'react-icons/bs';
+// services
 import userApi from '../services/userAPI';
 // styles
 import './ModalBookDetailsStyles.css';
 
 
 // Modal Book Details Component
-export default function ModalBookDetails({ handleModal, pickedBook }) {
-  const [isFavoriteBook, setIsFavoriteBook] = useState(false);
+export default function ModalBookDetails({
+  handleModal,
+  pickedBook,
+  isFavoriteBook,
+  setIsFavoriteBook }) {
 
   const userId = 2;
   const {
@@ -34,8 +38,16 @@ export default function ModalBookDetails({ handleModal, pickedBook }) {
 
   const handleFavoriteClick = () => {
 
-    userApi.post('/favorites/books/user',
-      { userId, bookId, title, description, thumbnail, language, publishedDate, pageCount })
+    userApi.post('/favorites/books/user', {
+      userId,
+      bookId,
+      title,
+      description,
+      thumbnail,
+      language,
+      publishedDate,
+      pageCount
+    })
       .then(() => setIsFavoriteBook(!isFavoriteBook));
   };
 

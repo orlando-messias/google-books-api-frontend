@@ -1,0 +1,58 @@
+.favoritesContainer {
+  width: 90%;
+  margin: 30px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.pageTitle {
+  font-family: 'Roboto', sans-serif;
+  border-bottom: 1px solid var(--blue);
+  padding-bottom: 2px;
+  font-family: 'Marvel', sans-serif;
+  font-size: 22px;
+  color: var(--blue);
+  margin-bottom: 25px;
+}
+
+.cardsContainer {
+  display: flex;
+  justify-content: flex-start;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+.favoriteCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 0;
+  margin-left: 2px;
+  width: 180px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.favoriteCard:hover {
+  transform: scale(1.06);
+}
+
+.favoriteCard p {
+  width: 100%;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.favoriteCard img {
+  width: 100px;
+  border-radius: 10px;
+}
+
+.favoriteCard p {
+  text-align: center;
+  font-weight: bold;
+}
