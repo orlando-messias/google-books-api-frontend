@@ -24,17 +24,24 @@ export default function Home() {
   const [isFavoriteBook, setIsFavoriteBook] = useState(false);
   const [totalItems, setTotalItems] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
+  const [pageNumberLimit, setPageNumberLimit] = useState(5);
+  const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(5);
+  const [minPageNumberLimit, setMinPageNumberLimit] = useState(0);
+
 
   const handleSearchButtonClick = () => {
     googleAPI(book, 0).get()
       .then(response => {
         setBooks(response.data.items);
         setTotalItems(response.data.totalItems);
+        setCurrentPage(1);
+        setMaxPageNumberLimit(5);
+        setMinPageNumberLimit(0);
       });
   };
 
-  const handlePageNumberClick = (e) => {
-    const pageNumber = Number(e.target.id);
+  const handlePageNumberClick = (num) => {
+    const pageNumber = Number(num);
     setCurrentPage(pageNumber);
     const startIndex = (pageNumber * 20) - 20;
 
@@ -50,18 +57,25 @@ export default function Home() {
   const pages = [];
   for (let i = 1; i <= Math.ceil(totalItems / 20); i++) {
     pages.push(i);
-  }
+  };
 
-  const renderPageNumbers = pages.map(number =>
-    <li
-      key={number}
-      id={number}
-      onClick={handlePageNumberClick}
-      className={currentPage == number ? 'active' : null}
-    >
-      {number}
-    </li>
-  );
+  const renderPageNumbers = pages.map(number => {
+    if (number < maxPageNumberLimit + 1 && number > minPageNumberLimit) {
+      return (
+        <li
+          key={number}
+          id={number}
+          onClick={() => handlePageNumberClick(number)}
+          className={currentPage == number ? 'active' : null}
+        >
+          {number}
+        </li>
+      );
+    } else {
+      return null;
+    }
+  });
+
 
   const handleSearchChange = (e) => {
     const book = e.target.value;
@@ -74,7 +88,23 @@ export default function Home() {
 
   const handlePickedBook = (pickedBook) => {
     setPickedBook(pickedBook);
-  }
+  };
+
+  const handleNextBtn = () => {
+    handlePageNumberClick(currentPage + 1);
+    if (currentPage + 1 > maxPageNumberLimit) {
+      setMaxPageNumberLimit(maxPageNumberLimit + pageNumberLimit);
+      setMinPageNumberLimit(minPageNumberLimit + pageNumberLimit);
+    }
+  };
+
+  const handlePrevBtn = () => {
+    handlePageNumberClick(currentPage - 1);
+    if ((currentPage - 1) % pageNumberLimit == 0) {
+      setMaxPageNumberLimit(maxPageNumberLimit - pageNumberLimit);
+      setMinPageNumberLimit(minPageNumberLimit - pageNumberLimit);
+    }
+  };
 
 
   return (
@@ -132,9 +162,24 @@ export default function Home() {
         />
       }
 
-      <ul className="pageNumbers">
-        {renderPageNumbers}
-      </ul>
+      {books.length > 0 &&
+        <ul className="pageNumbers">
+          <li>
+            <button onClick={handlePrevBtn} disabled={currentPage === 1}>
+              Prev
+          </button>
+          </li>
+
+          {renderPageNumbers}
+
+          <li>
+            <button onClick={handleNextBtn}>
+              Next
+          </button>
+          </li>
+        </ul>
+
+      }
     </div>
-  )
+  );
 };
