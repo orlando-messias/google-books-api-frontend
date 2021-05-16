@@ -71,8 +71,9 @@ export default function Home() {
 
             return (
               <BookCard key={index}
+                bookId={book.id}
                 title={book.volumeInfo.title}
-                image={thumbnail}
+                thumbnail={thumbnail}
                 pageCount={book.volumeInfo.pageCount}
                 publishedDate={book.volumeInfo.publishedDate}
                 language={book.volumeInfo.language}
@@ -87,7 +88,6 @@ export default function Home() {
 
       {showModal &&
         <ModalBookDetails
-          showModal={showModal}
           handleModal={handleModal}
           pickedBook={pickedBook}
         />

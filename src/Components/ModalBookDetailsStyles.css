@@ -47,6 +47,11 @@
 
 .modalInfo {
   display: flex;
+  justify-content: space-between;
+}
+
+.modalSideInfo {
+  display: flex;
   justify-content: flex-start;
 }
 
@@ -57,14 +62,27 @@
 .bookImage {
   min-width: 150px;
   height: 200px;
-  border: 1px solid black;
+  border: 1px solid var(--light-gray);
   margin-right: 10px;
 }
 
 .modalDescription {
   margin-top: 20px;
   overflow-y: scroll;
-  height: 200px;
+  max-height: 200px;
+}
+
+.modalInfo .favoriteContainer {
+  font-size: 20px;
+  margin: 0 3px;
+}
+
+.favorite {
+  color: var(--blue);
+}
+
+.notFavorite {
+  color: var(--gray);
 }
 
 
