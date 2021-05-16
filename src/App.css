@@ -18,6 +18,27 @@ a {
   color: var(--blue);
 }
 
+input::placeholder {
+  font-size: 10px;
+}
+
+button {
+  font-family: 'Marvel', sans-serif;
+  cursor: pointer;
+}
+
+button:disabled {
+  border:1px solid gainsboro;
+  color: gainsboro;
+  cursor: initial;
+  background-color: white;
+}
+
+.container {
+  margin: 0;
+  padding: 0;
+}
+
 .fieldsContainer .field {
   width: 100%;
   padding: 15px 5px 5px 5px;
@@ -56,6 +77,13 @@ a {
   margin-top: 20px;
   margin-bottom: -26px;
   font-weight: bold;
+}
+
+/*  placeholder  */
+
+::-webkit-input-placeholder {
+  color: var(--red);
+  font-size: 10px;
 }
 
 :-moz-placeholder { /* Firefox 18- */

@@ -10,11 +10,6 @@
   font-size: 15px;
 }
 
-.userBarContainer .editUser {
-  font-size: 11px;
-  cursor: pointer;
-}
-
 .userBarContainer .menu {
   cursor: pointer;
   text-align: right;

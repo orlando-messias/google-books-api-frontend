@@ -52,7 +52,7 @@ export default function Login() {
     if (error) {
       setUserLogin({ email: '', password: '' });
     }
-  }, [success, error, dispatch, errorMessage, user]);
+  }, [success, error, dispatch, errorMessage, history, user]);
 
   const login = () => {
     const { email, password } = userLogin;
