@@ -59,6 +59,21 @@
   align-items: center;
 }
 
+.pageNumbers {
+  list-style: none;
+  display: flex;
+}
+
+.pageNumbers li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.pageNumbers li.active {
+  color: var(--red);
+  font-weight: bold;
+}
+
 
 /*  -- responsive css -- */
 

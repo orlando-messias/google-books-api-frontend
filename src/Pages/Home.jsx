@@ -22,11 +22,46 @@ export default function Home() {
   const [showModal, setShowModal] = useState(false);
   const [pickedBook, setPickedBook] = useState({});
   const [isFavoriteBook, setIsFavoriteBook] = useState(false);
+  const [totalItems, setTotalItems] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
 
   const handleSearchButtonClick = () => {
-    googleAPI(book).get()
-      .then(response => { setBooks(response.data.items); console.log(response.data.items) })
+    googleAPI(book, 0).get()
+      .then(response => {
+        setBooks(response.data.items);
+        setTotalItems(response.data.totalItems);
+      });
   };
+
+  const handlePageNumberClick = (e) => {
+    const pageNumber = Number(e.target.id);
+    setCurrentPage(pageNumber);
+    const startIndex = (pageNumber * 20) - 20;
+
+    console.log(startIndex);
+    console.log(totalItems);
+    googleAPI(book, startIndex).get()
+      .then(response => {
+        setBooks(response.data.items);
+        setTotalItems(response.data.totalItems);
+      });
+  };
+
+  const pages = [];
+  for (let i = 1; i <= Math.ceil(totalItems / 20); i++) {
+    pages.push(i);
+  }
+
+  const renderPageNumbers = pages.map(number =>
+    <li
+      key={number}
+      id={number}
+      onClick={handlePageNumberClick}
+      className={currentPage == number ? 'active' : null}
+    >
+      {number}
+    </li>
+  );
 
   const handleSearchChange = (e) => {
     const book = e.target.value;
@@ -41,11 +76,12 @@ export default function Home() {
     setPickedBook(pickedBook);
   }
 
+
   return (
     <div className="pageContainer">
 
       <Topbar />
-
+      {console.log(books)}
       <div className="logoContainer">
         <h2 className="logoTitleMain">Google</h2>
         <span className="logoTitleSecondary">
@@ -96,6 +132,9 @@ export default function Home() {
         />
       }
 
+      <ul className="pageNumbers">
+        {renderPageNumbers}
+      </ul>
     </div>
   )
 };
