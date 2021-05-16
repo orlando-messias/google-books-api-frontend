@@ -7,7 +7,7 @@ import Login from './Pages/Login';
 export default function Routes() {
   return (
     <Router>
-      <Route path='/' component={Login} />
+      <Route path='/' exact component={Login} />
       <Route path='/home' component={Home} />
       <Route path='/favorites' component={FavoriteBooks} />
     </Router>

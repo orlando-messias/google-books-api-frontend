@@ -1,7 +1,6 @@
 // react
 import React, { useEffect, useState } from 'react';
-import { useHistory } from 'react-router';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 // redux
 import { useSelector, useDispatch } from 'react-redux';
 import { loginUser, errorToFalse } from '../store/Login/Login.action';
@@ -10,8 +9,7 @@ import { BsFillShieldLockFill } from 'react-icons/bs';
 // services
 import {
   passwordValidation,
-  emailValidation,
-  isLogin
+  emailValidation
 } from '../services/loginServices';
 // styles
 import './LoginStyles.css';
@@ -36,11 +34,6 @@ export default function Login() {
 
   const history = useHistory();
 
-  // checks if a user is logged in
-  useEffect(() => {
-    if (isLogin()) history.push('/home');
-  }, [history]);
-
   // checks if email and password are valid everytime object userLogin changes
   useEffect(() => {
     emailValidation(userLogin.email)
@@ -54,19 +47,17 @@ export default function Login() {
 
   useEffect(() => {
     if (success) {
-      localStorage.setItem('loggedUser', JSON.stringify(user));
       history.push('/home');
     }
     if (error) {
       setUserLogin({ email: '', password: '' });
-      console.log('ERR ', errorMessage);
     }
-  }, [success, error, dispatch, errorMessage, history, user]);
+  }, [success, error, dispatch, errorMessage, user]);
 
   const login = () => {
     const { email, password } = userLogin;
     dispatch(errorToFalse());
-    dispatch(loginUser(email, password))
+    dispatch(loginUser(email, password));
   };
 
   const handleInputChange = (e) => {

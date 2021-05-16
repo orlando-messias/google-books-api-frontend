@@ -12,3 +12,71 @@
   --gray: #8b8b8b;
   --light-gray: #dcdcdc;
 }
+
+a {
+  text-decoration: none;
+  color: var(--blue);
+}
+
+.fieldsContainer .field {
+  width: 100%;
+  padding: 15px 5px 5px 5px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.fieldsContainer .field:focus {
+  outline: none;
+  ;
+}
+
+
+/*  errors styles  */
+
+.error {
+  color: red;
+  border-bottom: 1px solid red;
+}
+
+.noError {
+  color: rgba(0, 0, 255, 0.6);
+  border-bottom: 1px solid rgb(85, 85, 243);
+}
+
+.error:focus, .noError:focus {
+  box-shadow: 0 5px 5px -7px black;
+}
+
+.errorSpan {
+  font-size: 12px;
+  color: #e1392c;
+  margin-top: 20px;
+  margin-bottom: -26px;
+  font-weight: bold;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+  color: var(--red);
+  font-size: 10px;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+  color: var(--red);
+  font-size: 10px;
+}
+
+:-ms-input-placeholder {  
+  color: var(--red);
+  font-size: 10px;
+}
+
+/*  input autofill style */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus {
+  transition: background-color 5000s ease-in-out 0s;
+  background-color: white;
+}
