@@ -22,7 +22,7 @@
   font-family: 'Roboto', sans-serif;
   display: flex;
   align-items: center;
-  background-color: var(--green);
+  background-color: var(--blue);
   justify-content: space-between;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
@@ -75,6 +75,7 @@
 .modalInfo .favoriteContainer {
   font-size: 20px;
   margin: 0 3px;
+  cursor: pointer;
 }
 
 .favorite {

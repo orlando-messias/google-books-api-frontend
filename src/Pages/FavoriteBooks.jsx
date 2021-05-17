@@ -9,6 +9,8 @@ import ModalBookDetails from '../Components/ModalBookDetails';
 // services
 import userApi from '../services/userAPI';
 import { isLogin } from '../services/loginServices';
+// images
+import imageNotFound from '../assets/image-not-found.jpg';
 // styles
 import './FavoriteBooksStyles.css';
 
@@ -25,7 +27,7 @@ export default function FavoriteBooks() {
   const dispatch = useDispatch();
   const user = JSON.parse(localStorage.getItem('loggedUser'));
   const userId = user ? user.id : null;
-  
+
   // checks if user is logged in, if not, redirects to login page
   useEffect(() => {
     !isLogin()
@@ -59,7 +61,7 @@ export default function FavoriteBooks() {
     setPickedBook({
       bookId,
       title,
-      thumbnail,
+      image: thumbnail,
       pageCount,
       publishedDate,
       language,
@@ -71,18 +73,16 @@ export default function FavoriteBooks() {
 
 
   return (
-    <div className="container">
-
-      <Topbar />
-
+    <>
       <div className="pageContainer">
+        <Topbar />
         <div className="favoritesContainer">
 
           <p className="pageTitle">Your Favorite Books</p>
 
-          <div className="cardsContainer">
+          {isFetching && !showModal && <p className="loading">LOADING...</p>}
 
-            {isFetching && <p>LOADING...</p>}
+          <div className="cardsContainer">
 
             {favoriteBooks.length === 0 && !isFetching && <p>You didn't picked any book yet!</p>}
 
@@ -101,7 +101,7 @@ export default function FavoriteBooks() {
                 )}
               >
                 <p>{fav.title}</p>
-                <img src={fav.thumbnail} alt={fav.title} />
+                <img src={fav.thumbnail ? fav.thumbnail : imageNotFound} alt={fav.title} />
               </div>
             ))}
           </div>
@@ -117,6 +117,6 @@ export default function FavoriteBooks() {
           setIsFavoriteBook={setIsFavoriteBook}
         />
       }
-    </div>
+    </>
   );
 };

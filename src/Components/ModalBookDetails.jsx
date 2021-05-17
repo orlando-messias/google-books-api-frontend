@@ -1,5 +1,6 @@
 // react
 import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 // react icons
 import { AiFillCloseCircle } from 'react-icons/ai';
 import { BsBookmarksFill } from 'react-icons/bs';
@@ -17,18 +18,20 @@ export default function ModalBookDetails({
   isFavoriteBook,
   setIsFavoriteBook }) {
 
-  const userId = 2;
+  const user = useSelector(state => state.loginReducer.user);
+  const { id: userId } = user;
+
   const {
     bookId,
     title,
     description,
-    thumbnail,
+    image,
     language,
     publishedDate,
     pageCount } = pickedBook;
 
   useEffect(() => {
-    userApi.get('/favorites/books/user/2')
+    userApi.get(`/favorites/books/user/${userId}`)
       .then(response => {
         const isFavorite = response.data.some(book => book.bookId === bookId);
         setIsFavoriteBook(isFavorite);
@@ -37,6 +40,11 @@ export default function ModalBookDetails({
 
 
   const handleFavoriteClick = () => {
+    // treats images not found
+    let thumbnail = '';
+    if (image.length <= 255) {
+      thumbnail = image
+    }
 
     userApi.post('/favorites/books/user', {
       userId,
@@ -64,7 +72,7 @@ export default function ModalBookDetails({
 
           <div className="modalInfo">
             <div className="modalSideInfo">
-              <img src={pickedBook.thumbnail} className="bookImage" alt={pickedBook.title} />
+              <img src={pickedBook.image} className="bookImage" alt={pickedBook.title} />
               <div>
                 <h3>{pickedBook.title}</h3>
                 <p>Published at: {pickedBook.publishedDate}</p>

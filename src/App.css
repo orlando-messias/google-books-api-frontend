@@ -27,6 +27,13 @@ button {
   cursor: pointer;
 }
 
+.loading {
+  font-size: 13px;
+  color: var(--red);
+  position: relative;
+  margin-bottom: -14px;
+}
+
 button:disabled {
   border:1px solid gainsboro;
   color: gainsboro;

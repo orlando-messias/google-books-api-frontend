@@ -31,6 +31,7 @@ export default function Home() {
   const [pageNumberLimit, setPageNumberLimit] = useState(5);
   const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(5);
   const [minPageNumberLimit, setMinPageNumberLimit] = useState(0);
+  const [isFetching, setIsFetching] = useState(false);
 
   const history = useHistory();
   const dispatch = useDispatch();
@@ -43,6 +44,7 @@ export default function Home() {
   }, [dispatch, history]);
 
   const handleSearchButtonClick = () => {
+    setIsFetching(true);
     googleAPI(book, 0).get()
       .then(response => {
         setBooks(response.data.items);
@@ -50,6 +52,7 @@ export default function Home() {
         setCurrentPage(1);
         setMaxPageNumberLimit(5);
         setMinPageNumberLimit(0);
+        setIsFetching(false);
       });
   };
 
@@ -141,9 +144,12 @@ export default function Home() {
         />
       </div>
 
+      {isFetching && <p className="loading">LOADING...</p>}
+      
       <div className="cardContainerPage">
         <div className="cardContainer">
           {books.map((book, index) => {
+            // treats images that are not available in google books api
             let thumbnail = '';
             (book.volumeInfo.imageLinks)
               ? thumbnail = book.volumeInfo.imageLinks.thumbnail
@@ -153,7 +159,7 @@ export default function Home() {
               <BookCard key={index}
                 bookId={book.id}
                 title={book.volumeInfo.title}
-                thumbnail={thumbnail}
+                image={thumbnail}
                 pageCount={book.volumeInfo.pageCount}
                 publishedDate={book.volumeInfo.publishedDate}
                 language={book.volumeInfo.language}

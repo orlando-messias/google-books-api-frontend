@@ -7,7 +7,7 @@ import './BookCardStyles.css';
 // Book Card Component
 export default function BookCard({
   title,
-  thumbnail,
+  image,
   pageCount,
   publishedDate,
   language,
@@ -20,7 +20,7 @@ export default function BookCard({
     handlePickedBook({
       bookId,
       title,
-      thumbnail,
+      image,
       pageCount,
       publishedDate,
       language,
@@ -34,7 +34,7 @@ export default function BookCard({
     <div className="bookCardPageContainer" onClick={handleCardClick}>
       <div className="bookCard">
         <div className="imageCard">
-          <img src={thumbnail} alt={title} />
+          <img src={image} alt={title} />
         </div>
         <div className="body">
           <h4>{title}</h4>

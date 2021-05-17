@@ -1,5 +1,6 @@
 // react
 import React from 'react';
+import { useHistory } from 'react-router';
 // react-icons
 import { ImSearch } from 'react-icons/im';
 import { BsFillBookmarksFill } from 'react-icons/bs';
@@ -9,7 +10,6 @@ import { AiFillHome } from 'react-icons/ai';
 import Userbar from './Userbar';
 // styles
 import './TopbarStyles.css';
-import { useHistory } from 'react-router';
 
 
 // Topbar Component
