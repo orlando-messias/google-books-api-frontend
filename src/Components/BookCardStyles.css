@@ -42,3 +42,35 @@
 .footer {
   display: none;
 }
+
+
+/*  -- responsive css -- */
+
+@media (max-width: 500px) {
+
+  .bookCard {
+    width: 90vw;
+    height: 180px;
+    padding: 6px;
+    margin: 10px 0;
+  }
+
+  .bookCardContainer {
+    width: 100%;
+  }
+
+  .bookCard img {
+    width: 120px;
+    height: 150px;
+  }
+
+  .bookCard h4 {
+    width: 100px;
+    font-size: 13px;
+  }
+
+  .bookCard .body {
+    font-size: 12px;
+  }
+
+}
