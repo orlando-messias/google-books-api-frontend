@@ -1,5 +1,7 @@
 // react
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router';
 import ModalBookDetails from '../Components/ModalBookDetails';
 // components
 import Topbar from '../Components/Topbar';
@@ -17,10 +19,14 @@ export default function FavoriteBooks() {
   const [pickedBook, setPickedBook] = useState({});
   const [isFetching, setIsFetching] = useState(false);
 
+  const history = useHistory();
+  const user = useSelector(state => state.loginReducer.user);
+  const userId = user ? user.id : null;
+
   // fetches user api to get all favorite books
   useEffect(() => {
     setIsFetching(true);
-    userApi.get(`/favorites/books/user/2`)
+    userApi.get(`/favorites/books/user/${userId}`)
       .then(response => {
         setFavoriteBooks(response.data)
         setIsFetching(false);

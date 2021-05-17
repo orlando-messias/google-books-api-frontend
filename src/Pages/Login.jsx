@@ -47,6 +47,7 @@ export default function Login() {
 
   useEffect(() => {
     if (success) {
+      localStorage.setItem('loggedUser', JSON.stringify(user));
       history.push('/home');
     }
     if (error) {

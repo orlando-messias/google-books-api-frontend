@@ -9,16 +9,24 @@ import { AiFillHome } from 'react-icons/ai';
 import Userbar from './Userbar';
 // styles
 import './TopbarStyles.css';
+import { useHistory } from 'react-router';
 
 
 // Topbar Component
 export default function Topbar() {
+
+  const history = useHistory();
+
+  const handleHomeClick = () => {
+    history.push('/home');
+  };
+
   return (
     <div className="topbarContainer">
       <div className="topbarMenu">
         <div>
           <AiFillHome className="icon" />
-          <span>Home</span>
+          <span onClick={handleHomeClick}>Home</span>
         </div>
         <div>
           <MdEmail className="icon" />

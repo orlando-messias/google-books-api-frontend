@@ -24,6 +24,10 @@ export default function Userbar() {
     history.push('/');
   };
 
+  const handleFavorites = () => {
+    history.push('/favorites');
+  }
+
   return (
     <div className="userBarContainer">
       <div>
@@ -38,7 +42,7 @@ export default function Userbar() {
         <div className="menu">
           <div className="menuFavorites">
             <BsFillBookmarksFill className="menuIcon" />
-            <span>Favorites</span>
+            <span onClick={handleFavorites}>Favorites</span>
           </div>
 
           <div className="menuLogout">

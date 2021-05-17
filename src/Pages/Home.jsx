@@ -1,14 +1,18 @@
 // react
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router';
+import { useDispatch } from 'react-redux';
+import { loginSuccess } from '../store/Login/Login.action';
 // react-icons
 import { GiOpenBook } from 'react-icons/gi';
-import BookCard from '../Components/BookCard';
-import ModalBookDetails from '../Components/ModalBookDetails';
-import SearchBar from '../Components/Searchbar';
 // components
 import Topbar from '../Components/Topbar';
+import SearchBar from '../Components/Searchbar';
+import ModalBookDetails from '../Components/ModalBookDetails';
+import BookCard from '../Components/BookCard';
 // services
 import googleAPI from '../services/googleAPI';
+import { isLogin } from '../services/loginServices';
 // images
 import imageNotFound from '../assets/image-not-found.jpg';
 // styles
@@ -28,6 +32,15 @@ export default function Home() {
   const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(5);
   const [minPageNumberLimit, setMinPageNumberLimit] = useState(0);
 
+  const history = useHistory();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    // checks if user is logged in, if not, redirects to login page
+    !isLogin()
+      ? history.push('/')
+      : dispatch(loginSuccess(JSON.parse(localStorage.getItem('loggedUser'))));
+  }, [dispatch, history]);
 
   const handleSearchButtonClick = () => {
     googleAPI(book, 0).get()
