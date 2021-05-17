@@ -16,7 +16,7 @@ password: ***asd123***
 
 
 ##### :camera: Screenshot
-<p align="center"><img src="/src/assets/02.jpg"></p>
+<p align="center"><img src="/src/assets/002.jpg"></p>
 
 
 ##### :camera: Screenshot
