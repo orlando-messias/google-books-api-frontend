@@ -6,6 +6,7 @@ Após login na aplicação, o usuário é redirecionado à home page, podendo pe
 A Google Books API está disponível em https://developers.google.com/books/
 
 Primeiro acesso? utilize as credenciais:
+
 email: ***user@user.com***
 password: ***asd123***
 
@@ -21,6 +22,7 @@ password: ***asd123***
 ##### :camera: Screenshot
 <p align="center"><img src="/src/assets/03.jpg"></p>
 Ao localizar e clicar sobre um card de livro:
+
 - são exibidas suas informações principais num Modal;
 - o usuário pode favoritá-lo ou desfavoritá-lo;
 
