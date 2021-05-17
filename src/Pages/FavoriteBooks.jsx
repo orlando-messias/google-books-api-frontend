@@ -1,12 +1,14 @@
 // react
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
-import ModalBookDetails from '../Components/ModalBookDetails';
+import { loginSuccess } from '../store/Login/Login.action';
 // components
 import Topbar from '../Components/Topbar';
+import ModalBookDetails from '../Components/ModalBookDetails';
 // services
 import userApi from '../services/userAPI';
+import { isLogin } from '../services/loginServices';
 // styles
 import './FavoriteBooksStyles.css';
 
@@ -20,8 +22,16 @@ export default function FavoriteBooks() {
   const [isFetching, setIsFetching] = useState(false);
 
   const history = useHistory();
-  const user = useSelector(state => state.loginReducer.user);
+  const dispatch = useDispatch();
+  const user = JSON.parse(localStorage.getItem('loggedUser'));
   const userId = user ? user.id : null;
+  
+  // checks if user is logged in, if not, redirects to login page
+  useEffect(() => {
+    !isLogin()
+      ? history.push('/')
+      : dispatch(loginSuccess(JSON.parse(localStorage.getItem('loggedUser'))));
+  }, [dispatch, history]);
 
   // fetches user api to get all favorite books
   useEffect(() => {
