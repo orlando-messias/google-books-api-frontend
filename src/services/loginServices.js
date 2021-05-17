@@ -20,8 +20,14 @@ const isLogin = () => {
   return localStorage.getItem('loggedUser') ? true : false
 };
 
+// checks if value is longer than or equal to 5 characters plus no spaces
+const generalValidation = (value) => {
+  return (value.length >= 5) ? true : false;
+};
+
 module.exports = {
   passwordValidation,
   emailValidation,
-  isLogin
+  isLogin,
+  generalValidation
 };

@@ -115,7 +115,7 @@ export default function Login() {
 
           <div className="no-account">
             <Link to="/register">
-              <p onClick={() => history.push('/register/insert')}>
+              <p onClick={() => history.push('/register')}>
                 I don't have an account yet
               </p>
             </Link>
