@@ -90,6 +90,7 @@
   
   .searchbarBox input[type=text] {
     width: 80%;
+    font-size: 15px;
   }
 
   .searchbarBox .btnSearch {

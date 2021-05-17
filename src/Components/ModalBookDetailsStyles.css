@@ -86,4 +86,41 @@
 }
 
 
+@media (max-width: 500px) {
+
+  .modalContainer {
+    width: 90vw;
+    height: 90vh;
+  }
+
+  .modalHeader {
+    height: 30px;
+    font-size: 13px;
+  }
+
+  .modalSideInfo h3 {
+    font-size: 15px;
+  }
+
+  .modalSideInfo p, .modalDescription {
+    font-size: 14px;
+  }
+
+  .modalDescription {
+    overflow-y: scroll;
+    max-height: 130px;
+    padding-right: 10px;
+  }
+}
+
+
+@media (max-width: 390px) {
+
+  .bookImage {
+    min-width: 100px;
+    height: 175px;
+  }
+}
+
+
 

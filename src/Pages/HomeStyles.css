@@ -62,6 +62,8 @@
 .pageNumbers {
   list-style: none;
   display: flex;
+  font-size: 20px;
+  padding: 10px 0;
 }
 
 .pageNumbers li {
@@ -74,6 +76,11 @@
   font-weight: bold;
 }
 
+.pageNumbers button {
+  border: none;
+  outline: none;
+}
+
 
 /*  -- responsive css -- */
 
@@ -82,5 +89,12 @@
   .cardContainerPage {
     margin-top: 30px;
     width: 100%;
+  }
+
+  .pageNumbers {
+    list-style: none;
+    display: flex;
+    font-size: 16px;
+    padding: 6px 0;
   }
 }
