@@ -36,7 +36,7 @@ Características:
 - Os dados dos usuários e seus livros favoritados são armazenados em banco de dados MySql.
 
 ### :bulb: Antes de Começar
-Clone e inicialize o backend [marvel-challenge-backend](https://github.com/orlando-messias/google-books-api-users-manager) para o gerenciamento do login e dos dados dos usuários.
+Clone e inicialize o backend [google-books-api-users-manager](https://github.com/orlando-messias/google-books-api-users-manager) para o gerenciamento do login e dos dados dos usuários.
 
 
 ### :gear: Instalações
