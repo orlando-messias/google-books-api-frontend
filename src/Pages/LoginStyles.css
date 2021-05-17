@@ -74,8 +74,9 @@
   border: 1px solid var(--red);
 }
 
-input::placeholder {
+.loginContainer .form input::placeholder {
   font-size: 10px;
+  color: var(--red);
 }
 
 .loginContainer .form .formButton:disabled {

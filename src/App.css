@@ -51,7 +51,6 @@ button:disabled {
 
 .fieldsContainer .field:focus {
   outline: none;
-  ;
 }
 
 
@@ -81,25 +80,7 @@ button:disabled {
 
 /*  placeholder  */
 
-::-webkit-input-placeholder {
-  color: var(--red);
-  font-size: 10px;
-}
 
-:-moz-placeholder { /* Firefox 18- */
-  color: var(--red);
-  font-size: 10px;
-}
-
-::-moz-placeholder {  /* Firefox 19+ */
-  color: var(--red);
-  font-size: 10px;
-}
-
-:-ms-input-placeholder {  
-  color: var(--red);
-  font-size: 10px;
-}
 
 /*  input autofill style */
 input:-webkit-autofill,
