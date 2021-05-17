@@ -6,10 +6,7 @@ Após login na aplicação, o usuário é redirecionado à home page, podendo pe
 A Google Books API está disponível em https://developers.google.com/books/
 
 Primeiro acesso? 
-> pode utilizar as credenciais:
-
-email: ***user@user.com***
-password: ***asd123***
+> pode utilizar as credenciais email: ***user@user.com*** e password: ***asd123***
 
 > ou criar seu próprio usuário pelo link ***"I don't have an account yet"*** da página de login.
 
