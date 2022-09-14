@@ -1,5 +1,6 @@
 // react
 import React, { useEffect, useState } from 'react';
+import ReactLoading from 'react-loading';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 import { loginSuccess } from '../store/Login/Login.action';
@@ -80,7 +81,7 @@ export default function FavoriteBooks() {
 
           <p className="pageTitle">Your Favorite Books</p>
 
-          {isFetching && !showModal && <p className="loading">LOADING...</p>}
+          {isFetching && !showModal && <div style={{ display: 'flex', justifyContent: 'center' }}><ReactLoading type='bars' color="#70b3f7" /></div>}
 
           <div className="cardsContainer">
 
@@ -100,8 +101,8 @@ export default function FavoriteBooks() {
                   fav.description
                 )}
               >
-                <p>{fav.title}</p>
-                <img src={fav.thumbnail ? fav.thumbnail : imageNotFound} alt={fav.title} />
+                <p>{fav.title.length > 15 ? `${fav.title.substring(0, 15)}...` : fav.title}</p>
+                <img style={{ border: '1px solid black '}} src={fav.thumbnail ? fav.thumbnail : imageNotFound} alt={fav.title} />
               </div>
             ))}
           </div>

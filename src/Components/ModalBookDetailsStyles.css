@@ -68,22 +68,26 @@
 
 .modalDescription {
   margin-top: 20px;
+  padding: 10px 15px 10px;
   overflow-y: scroll;
   max-height: 200px;
 }
 
 .modalInfo .favoriteContainer {
   font-size: 20px;
+  padding: 3px;
   margin: 0 3px;
   cursor: pointer;
 }
 
 .favorite {
   color: var(--blue);
+  font-size: 30px;
 }
 
 .notFavorite {
   color: var(--gray);
+  font-size: 30px;
 }
 
 

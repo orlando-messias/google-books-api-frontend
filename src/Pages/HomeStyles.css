@@ -44,9 +44,10 @@
 }
 
 .cardContainerPage {
-  margin-top: 20px;
+  position: relative;
+  margin-top: 40px;
   width: 100vw;
-  background-color: #ececec;
+  background-color: #f1f4f7;
   display: flex;
   justify-content: center;
 }

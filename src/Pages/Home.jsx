@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { loginSuccess } from '../store/Login/Login.action';
 // react-icons
 import { GiOpenBook } from 'react-icons/gi';
+import ReactLoading from 'react-loading';
 // components
 import Topbar from '../Components/Topbar';
 import SearchBar from '../Components/Searchbar';
@@ -144,61 +145,67 @@ export default function Home() {
         />
       </div>
 
-      {isFetching && <p className="loading">LOADING...</p>}
+      {isFetching
+        ? <div style={{ position: 'relative', zIndex: '1000' }}><ReactLoading type="bars" color="#70b3f7" /></div>
+        : (
+          <>
+            <div className="cardContainerPage">
+              <div className="cardContainer">
+                {books.map((book, index) => {
+                  // treats images that are not available in google books api
+                  let thumbnail = '';
+                  (book.volumeInfo.imageLinks)
+                    ? thumbnail = book.volumeInfo.imageLinks.thumbnail
+                    : thumbnail = imageNotFound
       
-      <div className="cardContainerPage">
-        <div className="cardContainer">
-          {books.map((book, index) => {
-            // treats images that are not available in google books api
-            let thumbnail = '';
-            (book.volumeInfo.imageLinks)
-              ? thumbnail = book.volumeInfo.imageLinks.thumbnail
-              : thumbnail = imageNotFound
-
-            return (
-              <BookCard key={index}
-                bookId={book.id}
-                title={book.volumeInfo.title}
-                image={thumbnail}
-                pageCount={book.volumeInfo.pageCount}
-                publishedDate={book.volumeInfo.publishedDate}
-                language={book.volumeInfo.language}
-                description={book.volumeInfo.description}
-                handlePickedBook={handlePickedBook}
+                  return (
+                    <BookCard key={index}
+                      bookId={book.id}
+                      title={book.volumeInfo.title}
+                      image={thumbnail}
+                      pageCount={book.volumeInfo.pageCount}
+                      publishedDate={book.volumeInfo.publishedDate}
+                      language={book.volumeInfo.language}
+                      description={book.volumeInfo.description}
+                      handlePickedBook={handlePickedBook}
+                      handleModal={handleModal}
+                    />
+                  )
+                })}
+              </div>
+            </div>
+      
+            {showModal &&
+              <ModalBookDetails
                 handleModal={handleModal}
+                pickedBook={pickedBook}
+                isFavoriteBook={isFavoriteBook}
+                setIsFavoriteBook={setIsFavoriteBook}
               />
-            )
-          })}
-        </div>
-      </div>
-
-      {showModal &&
-        <ModalBookDetails
-          handleModal={handleModal}
-          pickedBook={pickedBook}
-          isFavoriteBook={isFavoriteBook}
-          setIsFavoriteBook={setIsFavoriteBook}
-        />
+            }
+      
+            {books.length > 0 &&
+              <ul className="pageNumbers">
+                <li>
+                  <button onClick={handlePrevBtn} disabled={currentPage === 1}>
+                    Prev
+                </button>
+                </li>
+      
+                {renderPageNumbers}
+      
+                <li>
+                  <button onClick={handleNextBtn}>
+                    Next
+                </button>
+                </li>
+              </ul>
+      
+            }
+          </>
+        )
       }
-
-      {books.length > 0 &&
-        <ul className="pageNumbers">
-          <li>
-            <button onClick={handlePrevBtn} disabled={currentPage === 1}>
-              Prev
-          </button>
-          </li>
-
-          {renderPageNumbers}
-
-          <li>
-            <button onClick={handleNextBtn}>
-              Next
-          </button>
-          </li>
-        </ul>
-
-      }
+      
     </div>
   );
 };

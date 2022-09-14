@@ -23,6 +23,7 @@ export default function SearchBar({ handleSearchChange, handleSearchButtonClick,
         name="search"
         placeholder="Type a book name you want to search"
         onChange={handleSearchChange}
+        autoComplete="off"
       />
 
       <button

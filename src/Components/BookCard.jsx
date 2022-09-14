@@ -38,8 +38,8 @@ export default function BookCard({
         </div>
         <div className="body">
           <h4>{title}</h4>
-          <p>Num of Pages: {pageCount}</p>
-          <p>Published at: {publishedDate}</p>
+          <p>Num of Pages: <strong>{pageCount}</strong></p>
+          <p>Published at: <strong>{publishedDate}</strong></p>
         </div>
         <div className="footer">
           <p>{language} {description}</p>
